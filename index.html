@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Solar Report — Free Solar Savings Report for Australian Homeowners</title>
+  <meta name="description" content="Find out how much solar could save you. Get your free personalised solar savings report delivered within 5 business days." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-icon">&#9728;</span>
+        <span class="logo-text">My Solar Report</span>
+      </div>
+      <p class="header-tagline">Trusted by Australian homeowners</p>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">100% Free — No Obligation</div>
+        <h1 class="hero-title">
+          Find Out How Much<br />
+          Solar Could Save You
+        </h1>
+        <p class="hero-subtitle">
+          Enter your details below and we'll send you a personalised solar savings
+          report within 5 business days — completely free, no obligation.
+        </p>
+
+        <!-- TRUST SIGNALS -->
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-icon">&#10003;</span>
+            <span>Free report within 5 business days</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">&#10003;</span>
+            <span>No obligation, no hassle</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">&#10003;</span>
+            <span>Trusted local installers only</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="form-card" id="quote-form-card">
+        <h2 class="form-title">Get Your Free Solar Report</h2>
+        <p class="form-subtitle">Takes 60 seconds</p>
+
+        <form id="quote-form" enctype="multipart/form-data">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first_name">First Name *</label>
+              <input type="text" id="first_name" name="first_name" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name <span class="optional">(optional)</span></label>
+              <input type="text" id="last_name" name="last_name" placeholder="Smith" />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+          </div>
+
+          <div class="form-group full-width phone-opt-in-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="phone_opt_in" name="phone_opt_in" />
+              <span>I'm happy to be contacted by phone</span>
+            </label>
+          </div>
+
+          <div class="form-group full-width" id="phone-field" style="display:none;">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="address">Street Address *</label>
+            <input type="text" id="address" name="address" placeholder="12 Example Street" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="suburb">Suburb *</label>
+              <input type="text" id="suburb" name="suburb" placeholder="Sydney" required />
+            </div>
+            <div class="form-group">
+              <label for="state">State *</label>
+              <select id="state" name="state" required>
+                <option value="" disabled selected>Select...</option>
+                <option value="NSW">NSW</option>
+                <option value="VIC">VIC</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="WA">WA</option>
+                <option value="TAS">TAS</option>
+                <option value="ACT">ACT</option>
+                <option value="NT">NT</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="electricity_bill">Rough Monthly Electricity Bill *</label>
+            <select id="electricity_bill" name="electricity_bill" required>
+              <option value="" disabled selected>Select your approximate monthly bill...</option>
+              <option value="under_100">Under $100/month</option>
+              <option value="100_150">$100 – $150/month</option>
+              <option value="150_200">$150 – $200/month</option>
+              <option value="200_250">$200 – $250/month</option>
+              <option value="250_300">$250 – $300/month</option>
+              <option value="300_350">$300 – $350/month</option>
+              <option value="350_400">$350 – $400/month</option>
+              <option value="400_450">$400 – $450/month</option>
+              <option value="450_500">$450 – $500/month</option>
+              <option value="over_500">Over $500/month</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="bill_attachments">Attach Recent Electricity Bills <span class="optional">(optional — helps us generate a more accurate report)</span></label>
+            <input type="file" id="bill_attachments" name="bill_attachments" accept=".pdf,.jpg,.jpeg,.png" multiple />
+            <p class="field-hint">Up to 3 recent bills accepted (PDF or image)</p>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">
+            <span id="btn-text">Get My Free Solar Report &#8594;</span>
+            <span id="btn-loading" style="display:none;">Sending...</span>
+          </button>
+
+          <p class="form-disclaimer">
+            By submitting, you agree to receive your free report by email. We respect your privacy
+            and will never sell your details to third parties without your consent.
+            <a href="#privacy">Privacy policy.</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MESSAGE (hidden until form submitted) -->
+  <div id="success-message" class="success-message" style="display:none;">
+    <div class="container">
+      <div class="success-card">
+        <div class="success-icon">&#9728;</div>
+        <h2>You're all set!</h2>
+        <p>
+          Thanks! Your free solar report will be sent to you via email within 5 business days.
+        </p>
+        <p class="success-email-note">Can't find it? Check your spam folder or
+          <a href="mailto:hello@mysolarreport.com.au">contact us</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Enter Your Details</h3>
+          <p>Tell us about your home and electricity usage. Takes 60 seconds.</p>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>We Analyse Your Home</h3>
+          <p>Our team reviews your details and calculates your potential solar savings.</p>
+        </div>
+        <div class="step-arrow">&#8594;</div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Receive Your Free Report</h3>
+          <p>Get your personalised report within 5 business days, with no obligation to proceed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAVINGS EXAMPLES -->
+  <section class="savings-section">
+    <div class="container">
+      <h2 class="section-title">Real Australian Homeowners Are Saving</h2>
+      <div class="savings-cards">
+        <div class="savings-card">
+          <div class="savings-amount">$1,800/yr</div>
+          <div class="savings-detail">4-bedroom home in QLD</div>
+          <div class="savings-bill">Was paying $380/month</div>
+        </div>
+        <div class="savings-card featured">
+          <div class="savings-label">Most Common</div>
+          <div class="savings-amount">$2,400/yr</div>
+          <div class="savings-detail">3-bedroom home in NSW</div>
+          <div class="savings-bill">Was paying $290/month</div>
+        </div>
+        <div class="savings-card">
+          <div class="savings-amount">$3,200/yr</div>
+          <div class="savings-detail">5-bedroom home in VIC</div>
+          <div class="savings-bill">Was paying $450/month</div>
+        </div>
+      </div>
+      <div class="cta-below-savings">
+        <a href="#quote-form-card" class="btn-cta">Find Out What You Could Save &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Common Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Is the report really free?</h3>
+          <p>Yes, 100% free. No credit card. No obligation to buy anything.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Will I get sales calls?</h3>
+          <p>Only if you request a quote from an installer. We won't pass your details to anyone
+          without your explicit permission in the report email.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How accurate is the savings estimate?</h3>
+          <p>It's a personalised estimate based on your electricity usage, location, and typical
+          solar output for your state. Actual savings depend on your roof and the system size you choose.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I rent?</h3>
+          <p>Unfortunately solar is only available to homeowners. If you're renting, speak to your
+          landlord — many are now open to solar as it increases property value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="privacy">
+    <div class="container">
+      <div class="footer-logo">
+        <span class="logo-icon">&#9728;</span>
+        <span class="logo-text">My Solar Report</span>
+      </div>
+      <p class="footer-text">
+        My Solar Report is operated by Blue Sky Solutions ABN: [YOUR ABN].
+        We connect Australian homeowners with trusted local solar installers.
+      </p>
+      <p class="footer-privacy">
+        <strong>Privacy:</strong> We collect your details to provide your free report and, with your
+        consent, connect you with local installers. We do not sell your personal data to third parties.
+        All data is stored securely in Australia.
+      </p>
+      <p class="footer-copy">&copy; 2026 My Solar Report (Blue Sky Solutions). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
