@@ -1,29 +1,17 @@
 // ============================================
-// MY SOLAR REPORT — FORM HANDLER
-// ============================================
-// This script submits the form to the Python backend.
-// Update BACKEND_URL before deploying.
+// HOW MUCH FOR SOLAR -- FORM HANDLER
+// TODO: Update BACKEND_URL and contact email once domain/deployment confirmed
 // ============================================
 
-const BACKEND_URL = 'https://YOUR-RAILWAY-APP.up.railway.app'; // <-- Update this after deployment
+const BACKEND_URL = 'https://YOUR-RAILWAY-APP.up.railway.app'; // <-- Update after deployment
 
-const form = document.getElementById('quote-form');
-const submitBtn = document.getElementById('submit-btn');
-const btnText = document.getElementById('btn-text');
-const btnLoading = document.getElementById('btn-loading');
-const formCard = document.getElementById('quote-form-card');
-const successMsg = document.getElementById('success-message');
-const phoneOptIn = document.getElementById('phone_opt_in');
-const phoneField = document.getElementById('phone-field');
+const form            = document.getElementById('quote-form');
+const submitBtn       = document.getElementById('submit-btn');
+const btnText         = document.getElementById('btn-text');
+const btnLoading      = document.getElementById('btn-loading');
+const formCard        = document.getElementById('quote-form-card');
+const successMsg      = document.getElementById('success-message');
 const billAttachments = document.getElementById('bill_attachments');
-
-// Show/hide phone number field based on opt-in checkbox
-phoneOptIn.addEventListener('change', () => {
-  phoneField.style.display = phoneOptIn.checked ? 'block' : 'none';
-  if (!phoneOptIn.checked) {
-    document.getElementById('phone').value = '';
-  }
-});
 
 // Limit file attachments to 3
 billAttachments.addEventListener('change', () => {
@@ -48,66 +36,70 @@ document.querySelectorAll('a[href="#quote-form-card"]').forEach(link => {
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // Remove any previous error
+  // Remove any previous error message
   const existingError = form.querySelector('.error-message');
   if (existingError) existingError.remove();
 
-  // Build FormData (handles both text fields and file uploads)
-  const formData = new FormData();
-  formData.append('first_name',       document.getElementById('first_name').value.trim());
-  formData.append('last_name',        document.getElementById('last_name').value.trim());
-  formData.append('email',            document.getElementById('email').value.trim());
-  formData.append('phone_opt_in',     phoneOptIn.checked ? 'true' : 'false');
-  formData.append('phone',            document.getElementById('phone').value.trim());
-  formData.append('address',          document.getElementById('address').value.trim());
-  formData.append('suburb',           document.getElementById('suburb').value.trim());
-  formData.append('state',            document.getElementById('state').value);
-  formData.append('electricity_bill', document.getElementById('electricity_bill').value);
-  formData.append('source',           'website');
-  formData.append('utm_source',       getParam('utm_source'));
-  formData.append('utm_medium',       getParam('utm_medium'));
-  formData.append('utm_campaign',     getParam('utm_campaign'));
-
-  // Attach bill files if provided
-  const files = billAttachments.files;
-  for (let i = 0; i < Math.min(files.length, 3); i++) {
-    formData.append('bill_attachments', files[i]);
+  // Require at least bill amount OR uploaded bill
+  const billAmount = document.getElementById('electricity_bill').value;
+  const billFiles  = billAttachments.files.length;
+  if (!billAmount && billFiles === 0) {
+    showError('Please select your monthly bill amount or upload a recent bill.');
+    return;
   }
 
-  // Show loading state
+  const formData = new FormData();
+  formData.append('first_name',        document.getElementById('first_name').value.trim());
+  formData.append('last_name',         document.getElementById('last_name').value.trim());
+  formData.append('email',             document.getElementById('email').value.trim());
+  formData.append('phone',             document.getElementById('phone').value.trim());
+  formData.append('no_direct_contact', document.getElementById('no_direct_contact').checked ? 'true' : 'false');
+  formData.append('address',           document.getElementById('address').value.trim());
+  formData.append('suburb',            document.getElementById('suburb').value.trim());
+  formData.append('state',             document.getElementById('state').value);
+  formData.append('electricity_bill',  billAmount);
+  formData.append('num_installers',    document.getElementById('num_installers').value);
+  formData.append('source',            'website');
+  formData.append('utm_source',        getParam('utm_source'));
+  formData.append('utm_medium',        getParam('utm_medium'));
+  formData.append('utm_campaign',      getParam('utm_campaign'));
+
+  // Attach bill files
+  for (let i = 0; i < Math.min(billFiles, 3); i++) {
+    formData.append('bill_attachments', billAttachments.files[i]);
+  }
+
   setLoading(true);
 
   try {
     const response = await fetch(`${BACKEND_URL}/leads`, {
       method: 'POST',
       body: formData,
-      // No Content-Type header — browser sets it automatically with boundary for multipart
     });
 
-    if (!response.ok) {
-      throw new Error(`Server error: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
-    // Success — hide form, show thank you message
+    // Success
     formCard.style.display = 'none';
     successMsg.style.display = 'block';
     successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // Fire Meta Pixel lead event if available
+    // Fire Meta Pixel lead event if pixel is installed
     if (typeof fbq !== 'undefined') {
       fbq('track', 'Lead');
     }
 
   } catch (err) {
     console.error('Form submission error:', err);
-    showError('Something went wrong. Please try again or email us at hello@mysolarreport.com.au');
+    // TODO: Update contact email once domain confirmed
+    showError('Something went wrong. Please try again or email us at hello@howmuchforsolar.com.au');
     setLoading(false);
   }
 });
 
 function setLoading(isLoading) {
   submitBtn.disabled = isLoading;
-  btnText.style.display = isLoading ? 'none' : 'inline';
+  btnText.style.display    = isLoading ? 'none'   : 'inline';
   btnLoading.style.display = isLoading ? 'inline' : 'none';
 }
 
