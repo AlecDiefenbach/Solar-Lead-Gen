@@ -239,6 +239,28 @@ input[type="file"] {
   color: var(--grey-400);
 }
 
+/* OR divider between bill dropdown and file upload */
+.or-divider {
+  text-align: center;
+  margin: 4px 0 12px;
+  position: relative;
+}
+
+.or-divider span {
+  font-size: 0.8rem;
+  color: var(--grey-400);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Privacy preference checkbox group */
+.privacy-group {
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
 .checkbox-label {
   display: flex;
   align-items: center;
