@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Solar Report — Free Solar Savings Report for Australian Homeowners</title>
-  <meta name="description" content="Find out how much solar could save you. Get your free personalised solar savings report delivered within 5 business days." />
+  <!-- TODO: Update title, description, brand references once domain confirmed -->
+  <title>How Much For Solar &mdash; Free Solar Quotes From Certified Australian Installers</title>
+  <meta name="description" content="Get free solar quotes from up to 5 certified local installers. No obligation, no direct sales calls unless you want them." />
   <link rel="stylesheet" href="style.css" />
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -17,9 +17,10 @@
     <div class="container">
       <div class="logo">
         <span class="logo-icon">&#9728;</span>
-        <span class="logo-text">My Solar Report</span>
+        <!-- TODO: Update brand name once domain confirmed -->
+        <span class="logo-text">How Much For Solar</span>
       </div>
-      <p class="header-tagline">Trusted by Australian homeowners</p>
+      <p class="header-tagline">Certified local installers. Zero pressure.</p>
     </div>
   </header>
 
@@ -27,39 +28,38 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="badge">100% Free — No Obligation</div>
+        <div class="badge">100% Free &mdash; No Obligation</div>
         <h1 class="hero-title">
-          Find Out How Much<br />
-          Solar Could Save You
+          Get Free Solar Quotes<br />
+          From Certified Local Installers
         </h1>
         <p class="hero-subtitle">
-          Enter your details below and we'll send you a personalised solar savings
-          report within 5 business days — completely free, no obligation.
+          Tell us about your home and we&rsquo;ll get you quotes from up to 5 certified
+          local solar installers &mdash; free, with no obligation and no pressure.
         </p>
-
-        <!-- TRUST SIGNALS -->
         <div class="trust-row">
           <div class="trust-item">
             <span class="trust-icon">&#10003;</span>
-            <span>Free report within 5 business days</span>
+            <span>Certified installers only</span>
           </div>
           <div class="trust-item">
             <span class="trust-icon">&#10003;</span>
-            <span>No obligation, no hassle</span>
+            <span>You choose how many quotes you get</span>
           </div>
           <div class="trust-item">
             <span class="trust-icon">&#10003;</span>
-            <span>Trusted local installers only</span>
+            <span>No obligation, no hard sell</span>
           </div>
         </div>
       </div>
 
       <!-- FORM CARD -->
       <div class="form-card" id="quote-form-card">
-        <h2 class="form-title">Get Your Free Solar Report</h2>
+        <h2 class="form-title">Get Your Free Solar Quotes</h2>
         <p class="form-subtitle">Takes 60 seconds</p>
 
         <form id="quote-form" enctype="multipart/form-data">
+
           <div class="form-row">
             <div class="form-group">
               <label for="first_name">First Name *</label>
@@ -76,16 +76,17 @@
             <input type="email" id="email" name="email" placeholder="jane@email.com" required />
           </div>
 
-          <div class="form-group full-width phone-opt-in-group">
-            <label class="checkbox-label">
-              <input type="checkbox" id="phone_opt_in" name="phone_opt_in" />
-              <span>I'm happy to be contacted by phone</span>
-            </label>
+          <div class="form-group full-width">
+            <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" />
           </div>
 
-          <div class="form-group full-width" id="phone-field" style="display:none;">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX" />
+          <div class="form-group full-width privacy-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="no_direct_contact" name="no_direct_contact" />
+              <!-- TODO: Update brand name once domain confirmed -->
+              <span>I do not want to be contacted by solar installers directly &mdash; only through How Much For Solar</span>
+            </label>
           </div>
 
           <div class="form-group full-width">
@@ -115,36 +116,49 @@
           </div>
 
           <div class="form-group full-width">
-            <label for="electricity_bill">Rough Monthly Electricity Bill *</label>
-            <select id="electricity_bill" name="electricity_bill" required>
-              <option value="" disabled selected>Select your approximate monthly bill...</option>
+            <label for="electricity_bill">Rough Monthly Electricity Bill <span class="optional">(or upload a bill below)</span></label>
+            <select id="electricity_bill" name="electricity_bill">
+              <option value="" selected>Select your approximate monthly bill...</option>
               <option value="under_100">Under $100/month</option>
-              <option value="100_150">$100 – $150/month</option>
-              <option value="150_200">$150 – $200/month</option>
-              <option value="200_250">$200 – $250/month</option>
-              <option value="250_300">$250 – $300/month</option>
-              <option value="300_350">$300 – $350/month</option>
-              <option value="350_400">$350 – $400/month</option>
-              <option value="400_450">$400 – $450/month</option>
-              <option value="450_500">$450 – $500/month</option>
+              <option value="100_150">$100 &ndash; $150/month</option>
+              <option value="150_200">$150 &ndash; $200/month</option>
+              <option value="200_250">$200 &ndash; $250/month</option>
+              <option value="250_300">$250 &ndash; $300/month</option>
+              <option value="300_350">$300 &ndash; $350/month</option>
+              <option value="350_400">$350 &ndash; $400/month</option>
+              <option value="400_450">$400 &ndash; $450/month</option>
+              <option value="450_500">$450 &ndash; $500/month</option>
               <option value="over_500">Over $500/month</option>
             </select>
           </div>
 
+          <div class="or-divider"><span>&mdash; OR &mdash;</span></div>
+
           <div class="form-group full-width">
-            <label for="bill_attachments">Attach Recent Electricity Bills <span class="optional">(optional — helps us generate a more accurate report)</span></label>
+            <label for="bill_attachments">Upload Recent Electricity Bills <span class="optional">(PDF or image, up to 3)</span></label>
             <input type="file" id="bill_attachments" name="bill_attachments" accept=".pdf,.jpg,.jpeg,.png" multiple />
-            <p class="field-hint">Up to 3 recent bills accepted (PDF or image)</p>
+            <p class="field-hint">Uploading a bill helps installers provide a more accurate quote</p>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="num_installers">How many certified local installers would you like us to obtain quotes from? *</label>
+            <select id="num_installers" name="num_installers" required>
+              <option value="1">1 installer</option>
+              <option value="2">2 installers</option>
+              <option value="3" selected>3 installers (recommended)</option>
+              <option value="4">4 installers</option>
+              <option value="5">5 installers</option>
+            </select>
           </div>
 
           <button type="submit" class="btn-submit" id="submit-btn">
-            <span id="btn-text">Get My Free Solar Report &#8594;</span>
+            <span id="btn-text">Get My Free Solar Quotes &#8594;</span>
             <span id="btn-loading" style="display:none;">Sending...</span>
           </button>
 
           <p class="form-disclaimer">
-            By submitting, you agree to receive your free report by email. We respect your privacy
-            and will never sell your details to third parties without your consent.
+            By submitting, you agree to receive solar quotes by email or phone.
+            We respect your privacy and will never sell your details to third parties.
             <a href="#privacy">Privacy policy.</a>
           </p>
         </form>
@@ -152,17 +166,20 @@
     </div>
   </section>
 
-  <!-- SUCCESS MESSAGE (hidden until form submitted) -->
+  <!-- SUCCESS MESSAGE -->
   <div id="success-message" class="success-message" style="display:none;">
     <div class="container">
       <div class="success-card">
         <div class="success-icon">&#9728;</div>
-        <h2>You're all set!</h2>
+        <h2>You&rsquo;re all set!</h2>
         <p>
-          Thanks! Your free solar report will be sent to you via email within 5 business days.
+          Thanks! We&rsquo;re finding certified local solar installers in your area.
+          You&rsquo;ll receive your quotes within 2&ndash;3 business days.
         </p>
-        <p class="success-email-note">Can't find it? Check your spam folder or
-          <a href="mailto:hello@mysolarreport.com.au">contact us</a>.
+        <p class="success-email-note">
+          Quotes will be sent to your email. Can&rsquo;t find them? Check your spam folder or
+          <!-- TODO: Update email once domain confirmed -->
+          <a href="mailto:hello@howmuchforsolar.com.au">contact us</a>.
         </p>
       </div>
     </div>
@@ -175,49 +192,21 @@
       <div class="steps-row">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Enter Your Details</h3>
-          <p>Tell us about your home and electricity usage. Takes 60 seconds.</p>
+          <h3>Tell Us About Your Home</h3>
+          <p>Enter your address, electricity usage, and how many installers you&rsquo;d like to hear from. Takes 60 seconds.</p>
         </div>
         <div class="step-arrow">&#8594;</div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>We Analyse Your Home</h3>
-          <p>Our team reviews your details and calculates your potential solar savings.</p>
+          <h3>We Find Certified Installers</h3>
+          <p>We identify trusted, accredited solar installers in your area and share your details with your chosen number.</p>
         </div>
         <div class="step-arrow">&#8594;</div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Receive Your Free Report</h3>
-          <p>Get your personalised report within 5 business days, with no obligation to proceed.</p>
+          <h3>Receive &amp; Compare Quotes</h3>
+          <p>Get quotes from up to 5 certified installers within 2&ndash;3 business days. Compare and choose &mdash; no pressure.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SAVINGS EXAMPLES -->
-  <section class="savings-section">
-    <div class="container">
-      <h2 class="section-title">Real Australian Homeowners Are Saving</h2>
-      <div class="savings-cards">
-        <div class="savings-card">
-          <div class="savings-amount">$1,800/yr</div>
-          <div class="savings-detail">4-bedroom home in QLD</div>
-          <div class="savings-bill">Was paying $380/month</div>
-        </div>
-        <div class="savings-card featured">
-          <div class="savings-label">Most Common</div>
-          <div class="savings-amount">$2,400/yr</div>
-          <div class="savings-detail">3-bedroom home in NSW</div>
-          <div class="savings-bill">Was paying $290/month</div>
-        </div>
-        <div class="savings-card">
-          <div class="savings-amount">$3,200/yr</div>
-          <div class="savings-detail">5-bedroom home in VIC</div>
-          <div class="savings-bill">Was paying $450/month</div>
-        </div>
-      </div>
-      <div class="cta-below-savings">
-        <a href="#quote-form-card" class="btn-cta">Find Out What You Could Save &#8594;</a>
       </div>
     </div>
   </section>
@@ -228,23 +217,24 @@
       <h2 class="section-title">Common Questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <h3>Is the report really free?</h3>
-          <p>Yes, 100% free. No credit card. No obligation to buy anything.</p>
+          <h3>Is this service really free?</h3>
+          <p>Yes, 100% free. We are paid by the installers, not by you. You pay nothing and have no obligation to proceed with any quote.</p>
         </div>
         <div class="faq-item">
           <h3>Will I get sales calls?</h3>
-          <p>Only if you request a quote from an installer. We won't pass your details to anyone
-          without your explicit permission in the report email.</p>
+          <p>Only from the installers you have agreed to hear from. If you tick the privacy option, installers will only reach you through us. Either way, you are in control.</p>
         </div>
         <div class="faq-item">
-          <h3>How accurate is the savings estimate?</h3>
-          <p>It's a personalised estimate based on your electricity usage, location, and typical
-          solar output for your state. Actual savings depend on your roof and the system size you choose.</p>
+          <h3>Are the installers certified?</h3>
+          <p>Yes &mdash; we only work with Clean Energy Council accredited installers. All installers in our network have been vetted for quality and reliability.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How accurate are the quotes?</h3>
+          <p>Quotes are based on your address, roof type, and electricity usage. Uploading a recent bill helps installers give you a more accurate figure. Final pricing is confirmed during a site visit.</p>
         </div>
         <div class="faq-item">
           <h3>What if I rent?</h3>
-          <p>Unfortunately solar is only available to homeowners. If you're renting, speak to your
-          landlord — many are now open to solar as it increases property value.</p>
+          <p>Solar is currently only available to property owners. If you are renting, speak to your landlord &mdash; many are open to solar as it adds property value and reduces bills.</p>
         </div>
       </div>
     </div>
@@ -255,18 +245,19 @@
     <div class="container">
       <div class="footer-logo">
         <span class="logo-icon">&#9728;</span>
-        <span class="logo-text">My Solar Report</span>
+        <span class="logo-text">How Much For Solar</span>
       </div>
       <p class="footer-text">
-        My Solar Report is operated by Blue Sky Solutions ABN: [YOUR ABN].
+        <!-- TODO: Update entity name and ABN once registered -->
+        How Much For Solar is operated by [Entity Name] ABN: [YOUR ABN].
         We connect Australian homeowners with trusted local solar installers.
       </p>
       <p class="footer-privacy">
-        <strong>Privacy:</strong> We collect your details to provide your free report and, with your
+        <strong>Privacy:</strong> We collect your details to provide solar quotes and, with your
         consent, connect you with local installers. We do not sell your personal data to third parties.
         All data is stored securely in Australia.
       </p>
-      <p class="footer-copy">&copy; 2026 My Solar Report (Blue Sky Solutions). All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 How Much For Solar. All rights reserved.</p>
     </div>
   </footer>
 
